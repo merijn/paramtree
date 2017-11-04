@@ -49,6 +49,8 @@ Test-Suite test
   Main-Is:              Test.hs
   Hs-Source-Dirs:       tests
   GHC-Options:          -Wall -fno-warn-unused-do-bind
+  Other-Extensions:     CPP
+                        DataKinds
   Build-Depends:        base
                ,        paramtree
                ,        bytestring >= 0.10 && < 0.11
