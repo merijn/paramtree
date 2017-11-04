@@ -29,19 +29,25 @@ module ParamTree
     , paramSets
     ) where
 
-#if !MIN_VERSION_base(4,8,0)
-import Control.Applicative ((<$>),(<*>))
-#endif
 import Data.Map (Map)
 import qualified Data.Map as M
+#if !MIN_VERSION_base(4,8,0)
+import Data.Monoid (mconcat)
+#endif
 import Data.Monoid (Endo(..))
 
 -- | Type family that converts a type level list into a function type:
 --
 -- @'ParamFun' ['Char', 'Int', 'Bool'] r@ = @'Char' -> 'Int' -> 'Bool' -> 'String' -> r@
+#if MIN_VERSION_base(4,7,0)
 type family ParamFun (l :: [*]) r where
     ParamFun '[] r = String -> r
     ParamFun (h ': t) r = h -> ParamFun t r
+#else
+type family ParamFun (l :: [*]) r
+type instance ParamFun '[] r = String -> r
+type instance ParamFun (h ': t) r = h -> ParamFun t r
+#endif
 
 -- | Sets of parameters to generate the tree from.
 data Params :: [*] -> * where
