@@ -6,6 +6,7 @@ import Control.Applicative ((<$>),(<*))
 import Control.Exception (SomeException, bracket, try)
 import qualified Data.ByteString as BS
 import qualified Data.ByteString.Lazy as LBS
+import Data.Char (ord)
 import GHC.IO.Handle (hDuplicate, hDuplicateTo)
 import System.IO (Handle, SeekMode(..), hFlush, hSeek, stdout)
 import System.IO.Temp (withSystemTempFile)
@@ -46,9 +47,11 @@ withCapturedIO act = withSystemTempFile "golden.test" $ \_ hnd -> do
     BS.hGetContents hnd
 
 runGolden :: String -> BS.ByteString -> TestTree
-runGolden name = goldenVsString name goldenFile . return . LBS.fromStrict
+runGolden name rawOutput = goldenVsString name goldenFile (return lazyOutput)
   where
     goldenFile = "tests/" ++ name ++ ".golden"
+    output = BS.take (BS.length rawOutput - 9) rawOutput
+    lazyOutput = LBS.fromStrict $ output `BS.snoc` fromIntegral (ord '\n')
 
 main :: IO ()
 main = do
