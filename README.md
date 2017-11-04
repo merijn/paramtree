@@ -27,7 +27,6 @@ main = defaultMain $ testTree genTestCase params
   where
     testTree = growTree (Just "/") testGroup "my tests"
 ```
-@
 
 This generates a tasty TestTree with all combinations of values passed to
 `genTestCase`. If the `Maybe String` argument is provided like in the above
