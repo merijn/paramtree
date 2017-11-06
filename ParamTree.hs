@@ -38,7 +38,8 @@ import Data.Monoid (Endo(..))
 
 -- | Type family that converts a type level list into a function type:
 --
--- @'ParamFun' ['Char', 'Int', 'Bool'] r@ = @'Char' -> 'Int' -> 'Bool' -> 'String' -> r@
+-- @'ParamFun' ['Char', 'Int', 'Bool'] r@ =
+-- @'Char' -> 'Int' -> 'Bool' -> 'String' -> r@
 #if MIN_VERSION_base(4,7,0)
 type family ParamFun (l :: [*]) r where
     ParamFun '[] r = String -> r
@@ -216,7 +217,8 @@ growTree collapse labelFun label fun params =
     flatten :: ((String, String), [(h, Tree t)]) -> [(String, h, Tree t)]
     flatten ((param, name), rest) = map (\(v, r) -> (nextLabel, v, r)) rest
       where
-        nextLabel = param ++ " " ++ name
+        nextLabel | null name = param
+                  | otherwise = param ++ " " ++ name
 
     buildBranch
         :: ParamFun (h ': t) a
