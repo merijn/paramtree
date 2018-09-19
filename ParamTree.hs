@@ -82,7 +82,7 @@ simpleParam = Param show id
 -- | A derived parameter set. Useful when the input expected by your function
 -- can't be conveniently rendered as a string label. For example:
 --
--- @derivedParam ('enumFromTo' 0) \"My Parameter\" [1,2,5]@
+-- @'derivedParam' ('enumFromTo' 0) \"My Parameter\" [1,2,5]@
 --
 -- The above passed @'enumFromTo' 0 1@, @'enumFromTo' 0 2@, etc. to your
 -- function, while labelling them as \"1 My Parameter\" and \"2 My Parameter\"
@@ -110,11 +110,11 @@ displayParam display = Param display id
 -- | A completely customisable parameter set, allows specification of how to
 -- display values and how to derive values. Equivalencies:
 --
--- 'simpleParam' = @customParam show id@
+-- @'simpleParam' = 'customParam' 'show' 'id'@
 --
--- 'derivedParam' = @customParam show@
+-- @'derivedParam' = 'customParam' 'show'@
 --
--- 'displayParam' = @\\f -> customParam f id@
+-- @'displayParam' = \\f -> 'customParam' f 'id'@
 customParam
     :: Eq r
     => (a -> String)
@@ -129,9 +129,9 @@ customParam = Param
 -- control over which combinations appear. For example:
 --
 -- @
--- paramSets
---     [ simpleParam "Bool" [True] . simpleParam "Char" "xy"
---     , simpleParam "Bool" [True,False] . simpleParam "Char" "a"
+-- 'paramSets'
+--     [ 'simpleParam' \"Bool\" [True] . 'simpleParam' \"Char\" \"xy\"
+--     , 'simpleParam' \"Bool\" [True,False] . 'simpleParam' \"Char\" \"a\"
 --     ]
 -- @
 --
