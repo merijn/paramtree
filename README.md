@@ -18,9 +18,9 @@ import Test.Tasty.HUnit
 genTestCase :: Int -> Bool -> Char -> String -> TestTree
 genTestCase i b c name = testCase name $ {- your code here -}
 
-params = 'simpleParam' \"Int\" [1,2]
-       . 'simpleParam' \"Bool\" [True]
-       . 'simpleParam' \"Char\" "xyz"
+params = simpleParam "Int" [1,2]
+       . simpleParam "Bool" [True]
+       . simpleParam "Char" "xyz"
 
 main :: IO ()
 main = defaultMain $ testTree genTestCase params
