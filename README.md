@@ -2,6 +2,7 @@ ParamTree
 =========
 [![BSD3](https://img.shields.io/badge/License-BSD-blue.svg)](https://en.wikipedia.org/wiki/BSD_License)
 [![Hackage](https://img.shields.io/hackage/v/paramtree.svg)](https://hackage.haskell.org/package/paramtree)
+[![hackage-ci](https://matrix.hackage.haskell.org/api/v2/packages/paramtree/badge)](https://matrix.hackage.haskell.org/#/package/paramtree)
 [![Build Status](https://travis-ci.org/merijn/paramtree.svg)](https://travis-ci.org/merijn/paramtree)
 
 **ParamTree** library for generating labelled test/benchmark trees from sets of
