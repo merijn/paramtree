@@ -6,7 +6,7 @@ Bug-Reports:        https://github.com/merijn/paramtree/issues
 
 Author:             Merijn Verstraaten
 Maintainer:         Merijn Verstraaten <merijn@inconsistent.nl>
-Copyright:          Copyright © 2017-2020 Merijn Verstraaten
+Copyright:          Copyright © 2017-2021 Merijn Verstraaten
 
 License:            BSD3
 License-File:       LICENSE
@@ -16,7 +16,7 @@ Cabal-Version:      >= 1.10
 Build-Type:         Simple
 Tested-With:        GHC == 7.6.3, GHC == 7.8.4, GHC == 7.10.3, GHC == 8.0.2,
                     GHC == 8.2.2, GHC == 8.4.4, GHC == 8.6.5, GHC == 8.8.4,
-                    GHC == 8.10.2
+                    GHC == 8.10.7, GHC == 9.0.1, GHC == 9.2.1
 
 Extra-Source-Files: README.md tests/*.golden
 
