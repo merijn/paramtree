@@ -1,3 +1,6 @@
+-- --ghc-options for local packages
+local-ghc-options: -Wcompat -Werror
+
 -- Build steps to fold
 folds:  sdist
         unpack
