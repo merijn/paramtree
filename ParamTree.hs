@@ -130,7 +130,7 @@ customParam = Param
 -- The result is \"axy\" being used in groups where the \"Bool\" parameter is
 -- @True@, if the \"Bool\" parameter is @False@ only \"a\" is used.
 paramSets :: [Params r -> Params l] -> Params r -> Params l
-paramSets prefixes rest = Sets $ map ($rest) prefixes
+paramSets prefixes rest = Sets $ map ($ rest) prefixes
 
 trim :: [Tree l] -> Tree l
 trim [] = Empty
