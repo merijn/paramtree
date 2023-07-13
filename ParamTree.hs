@@ -29,6 +29,7 @@ module ParamTree
     , paramSets
     ) where
 
+import Data.Kind (Type)
 import Data.Map (Map)
 import qualified Data.Map as M
 import Data.Monoid (Endo(..))
@@ -37,12 +38,12 @@ import Data.Monoid (Endo(..))
 --
 -- @'ParamFun' ['Char', 'Int', 'Bool'] r@ =
 -- @'Char' -> 'Int' -> 'Bool' -> 'String' -> r@
-type family ParamFun (l :: [*]) r where
+type family ParamFun (l :: [Type]) r where
     ParamFun '[] r = String -> r
     ParamFun (h ': t) r = h -> ParamFun t r
 
 -- | Sets of parameters to generate the tree from.
-data Params :: [*] -> * where
+data Params :: [Type] -> Type where
     Nil :: Params '[]
     Sets :: [Params l] -> Params l
     Param :: Eq r
@@ -53,7 +54,7 @@ data Params :: [*] -> * where
           -> Params l
           -> Params (r ': l)
 
-data Tree :: [*] -> * where
+data Tree :: [Type] -> Type where
     None :: Tree '[]
     Empty :: Tree l
     Grouped :: Eq r
