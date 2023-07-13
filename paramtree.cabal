@@ -54,7 +54,7 @@ Test-Suite test
                         DataKinds
   Build-Depends:        base
                ,        paramtree
-               ,        bytestring >= 0.10 && < 0.12
+               ,        bytestring >= 0.10 && < 0.13
                ,        tasty >= 0.11 && < 1.5
                ,        tasty-golden >= 2.0 && < 2.4
                ,        tasty-hunit >= 0.9 && < 0.11
