@@ -1,12 +1,12 @@
 Name:               paramtree
-Version:            0.1.1.1
+Version:            0.1.2
 
 Homepage:           https://github.com/merijn/paramtree
 Bug-Reports:        https://github.com/merijn/paramtree/issues
 
 Author:             Merijn Verstraaten
 Maintainer:         Merijn Verstraaten <merijn@inconsistent.nl>
-Copyright:          Copyright © 2017-2023 Merijn Verstraaten
+Copyright:          Copyright © 2017-2025 Merijn Verstraaten
 
 License:            BSD3
 License-File:       LICENSE
